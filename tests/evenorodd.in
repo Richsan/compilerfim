@@ -1,0 +1,14 @@
+PROGRAM evenorodd;
+VAR number : INTEGER;
+BEGIN
+	WRITE('Tell me a number: ');
+	READ(number);
+	WHILE number > 0 DO
+		number := number - 2;
+	ENDWHILE;
+	IF number = 0 THEN
+		WRITELN('Your number is even.');
+	ELSE
+		WRITELN('Your number is odd.');
+	ENDIF;
+END.

@@ -1,0 +1,16 @@
+PROGRAM media3;
+VAR x1, x2, x3, m : REAL;
+BEGIN
+	WRITE('The first note: ');
+	READ(x1);
+
+	WRITE('The second note: ');
+	READ(x2);
+
+	WRITE('The third note: ');
+	READ(x3);
+
+	m := (x1 + x2 + x3) DIV 3;
+
+	WRITELN('The average is: ', m);
+END.

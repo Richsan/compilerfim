@@ -1,0 +1,63 @@
+PROGRAM selectionsortascordesc;
+VAR i, j, min, max, t, n : INTEGER;
+	order : STRING;
+	a : ARRAY[1..30] OF INTEGER;
+BEGIN
+	WRITE('How much number (max: 30) have your list? ');
+	READ(n);
+
+	WRITELN('Enter your number list:');
+	i := 1;
+	WHILE i <= n DO
+		WRITE('#', i);
+		READ(t);
+		a[i] := t;
+		i := i + 1;
+	ENDWHILE;
+
+	order := 'order';
+	WHILE NOT (order = 'ASC' OR order = 'DESC') DO
+		WRITE('How order? (ASC/DESC)? ');
+		READ(order);
+	ENDWHILE;
+
+	IF order <> 'DESC' THEN
+		i := 1;
+		WHILE i < n DO
+			min := i;
+			j := i + 1;
+			WHILE j < n DO
+				IF a[j] < a[min] THEN
+					min := j;
+				ENDIF;
+			ENDWHILE;
+			t := a[min];
+			a[min] := a[i];
+			a[i] := t;
+		ENDWHILE;
+	ELSE
+		i := 1;
+		WHILE i < n DO
+			max := i;
+			j := i + 1;
+			WHILE j < n DO
+				IF a[j] > a[max] THEN
+					min := j;
+				ENDIF;
+			ENDWHILE;
+			t := a[max];
+			a[max] := a[i];
+			a[i] := t;
+		ENDWHILE;
+	ENDIF;
+
+	WRITE('Here is your number list ordered: ');
+	i := 1;
+	WHILE i <= n DO
+		WRITE(a[i]);
+		IF i < n THEN
+			WRITE(', ');
+		ENDIF;
+	ENDWHILE;
+	WRITELN('');
+END.

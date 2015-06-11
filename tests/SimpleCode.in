@@ -1,0 +1,15 @@
+PROGRAM SimpleCode;
+VAR a , b, i : INTEGER;
+BEGIN
+{coment 1}
+	IF ( {coment2}a > b ) THEN
+		WRITE('a maior que b');
+	ENDIF;
+
+	i := 0;
+
+	WHILE(i < a) DO
+		WRITELN(i);
+	ENDWHILE;
+
+END.

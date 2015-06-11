@@ -1,0 +1,34 @@
+PROGRAM insertionsort;
+VAR i, j, v : INTEGER;
+	a : ARRAY[1..10] OF INTEGER;
+BEGIN
+	WRITELN('Enter ten numbers');
+	i := 1;
+	WHILE i <= 10 DO
+		WRITE('#', i);
+		READ(v);
+		a[i] := v;
+		i := i + 1;
+	ENDWHILE;
+
+	i := 2;
+	WHILE i <= 10 DO
+		v := a[i];
+		j := i - 1;
+		WHILE j > 0 AND a[j] > v DO
+			a[j + 1] := a[j];
+			j := j - 1;
+		ENDWHILE;
+		a[j + 1] := v;
+	ENDWHILE;
+
+	WRITE('Here is your number list ordered: ');
+	i := 1;
+	WHILE i <= 10 DO
+		WRITE(a[i]);
+		IF i < 10 THEN
+			WRITE(', ');
+		ENDIF;
+	ENDWHILE;
+	WRITELN('');
+END.

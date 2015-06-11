@@ -1,0 +1,40 @@
+PROGRAM simplecalculator;
+VAR a, b : REAL;
+	op : CHAR;
+	again : STRING;
+BEGIN
+	again := 'yes';
+	WHILE again = 'yes' DO
+		READ(a);
+		READ(op);
+		READ(b);
+
+		IF op = '+' THEN
+			WRITELN(a, op, b, '=', a + b);
+		ELSE 
+			IF op = '-' THEN
+				WRITELN(a, op, b, '=', a - b);
+			ELSE 
+				IF op = '*' THEN
+					WRITELN(a, op, b, '=', a * b);
+				ELSE
+					IF op = '/' THEN
+						IF b <> 0 THEN
+							WRITELN(a, op, b, '=', a / b);
+						ELSE
+							WRITELN('Can not divide by zero!');
+						ENDIF;
+					ENDIF;
+				ENDIF;	
+			ENDIF;
+		ENDIF;
+
+		again := op;
+		WHILE NOT (again = 'yes' OR again = 'no') DO
+			WRITE('Do you wanna calculate again? ');
+			READ(again);
+		ENDWHILE;
+	ENDWHILE;
+
+	WRITELN('Thank you by use our hypermegablasterfucked calculator! :-)');
+END.

@@ -1,0 +1,49 @@
+PROGRAM countingsort;
+VAR i, j, v : INTEGER;
+	a, b, c : ARRAY[0..10] OF INTEGER;
+BEGIN
+	WRITELN('Enter ten numbers (positive and less than 10)');
+	i := 1;
+	WHILE i <= 10 DO
+		WRITE('#', i);
+		READ(v);
+		a[i] := v;
+		i := i + 1;
+	ENDWHILE;
+
+	i := 1;
+	WHILE i <= 10 DO
+		c[i] := 0;
+		i := i + 1;
+	ENDWHILE;
+
+	j := 1;
+	WHILE j <= 10 DO
+		c[a[j]] := c[a[j]] + 1;
+		j := j + 1;
+	ENDWHILE;
+
+	i := 2;
+	WHILE i <= 10 DO
+		c[i] := c[i] + c[i - 1];
+		i := i + 1;
+	ENDWHILE;
+
+	j := 10;
+	WHILE j > 0 DO
+		b[c[a[j]]] := a[j];
+		c[a[j]] := c[a[j]] - 1;
+		j := j - 1;
+	ENDWHILE;
+
+
+	WRITE('Here is your number list ordered: ');
+	i := 1;
+	WHILE i <= 10 DO
+		WRITE(a[i]);
+		IF i <= 9 THEN
+			WRITE(', ');
+		ENDIF;
+	ENDWHILE;
+	WRITELN('');
+END.
